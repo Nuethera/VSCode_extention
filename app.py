@@ -1,11 +1,17 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():  # put application's code here
-    return 'Hello World!'
+    return render_template('index.html')
+
+
+# @app.route('/asdas')
+# def hello_world():  # put application's code here
+#     return render_template('index.html')
+
 
 @app.route('/tts', methods=[ 'GET'])
 def tts_get():
