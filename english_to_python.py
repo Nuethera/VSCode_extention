@@ -16,13 +16,8 @@ import torch.nn as nn
 import torch.optim as optim
 
 import torchtext
-from torchtext import data
-from torchtext.datasets import IMDB
-train_iter, test_iter = IMDB(split=('train', 'test'))
-#from torchtext.data import Field, BucketIterator, Iterator
-
-# from torchtext.legacy.data import Field, BucketIterator, Iterator
-# from torchtext.legacy import data
+from torchtext.legacy.data import Field, BucketIterator, Iterator
+from torchtext.legacy import data
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -40,7 +35,7 @@ import time
 
 """## Reading the text file"""
 
-f = open("content/english_python_data.txt", "r", encoding='UTF-8')
+f = open("english_python_data.txt", "r")
 file_lines = f.readlines()
 
 """Our dataset is formulated in a manner where every question starts with '#'. Lines between two consecutive '#' forms the solution to the question."""
@@ -1228,5 +1223,4 @@ src = "write a function to find factorial"
 
 eng_to_python(src)
 
-#!nvidia-smi
 
